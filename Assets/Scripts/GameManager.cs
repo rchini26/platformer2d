@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.Singleton;
 using DG.Tweening;
+using Cinemachine;
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Camera")]
+    public CinemachineVirtualCamera vcam;
+    
     [Header("Player")]
     public GameObject playerPrefab;
     
@@ -24,16 +28,20 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         Init();
+        
+        _currentPlayer = GameObject.Find("Player");
     }
     public void Init()
     {
         SpawnPlayer();
+        // Assign the clone to the virtual camera
+        vcam.Follow = _currentPlayer.transform;
     }
 
     void SpawnPlayer()
     {
         _currentPlayer = Instantiate(playerPrefab);
         _currentPlayer.transform.position = startPoint.transform.position;
-        _currentPlayer.transform.DOScale(Vector3.one, duration).SetEase(ease);
+        _currentPlayer.transform.DOScale(Vector3.one, duration).SetEase(ease); 
     }
 }
