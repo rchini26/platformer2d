@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
@@ -31,14 +32,14 @@ public class HealthBase : MonoBehaviour
         
         _currentLife -= damage;
         
-        if (_currentLife <= 0)
-        {
-            Kill();    
-        }
-       
         if (_flashColor != null)
         {
             _flashColor.Flash();
+        }
+        
+        if (_currentLife <= 0)
+        {
+            Kill();    
         }
     }
 
@@ -47,7 +48,7 @@ public class HealthBase : MonoBehaviour
         _isDead = true;
         if (_flashColor != null)
         {
-            _flashColor.KillTweens();
+            DOTween.Kill(gameObject);
         }
         
         if (destroyOnKill)

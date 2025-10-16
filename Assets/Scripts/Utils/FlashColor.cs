@@ -19,10 +19,7 @@ public class FlashColor : MonoBehaviour
          spriteRenderers.Add(child);
       }
    }
-   public void KillTweens()
-   {
-      DOTween.Kill(spriteRenderers); 
-   }
+   
    public void Flash()
    {
       if (_currentTween != null)
@@ -33,7 +30,7 @@ public class FlashColor : MonoBehaviour
       
       foreach (var sprite in spriteRenderers)
       {
-         sprite.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
+         _currentTween = sprite.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
       }
    }
 }

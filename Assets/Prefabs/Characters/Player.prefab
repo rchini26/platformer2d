@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11ffd04fb2fd7548abba17ac8f95997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLife: 10
+  startLife: 20
   destroyOnKill: 1
   _flashColor: {fileID: 156605454558293817}
 --- !u!114 &156605454558293817
