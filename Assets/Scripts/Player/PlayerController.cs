@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
    private float _currentSpeed;
    private void Update()
    {
-      HandleJump();
       HandleMovement();
+      HandleJump();
    }
 
    void HandleMovement()
@@ -35,10 +35,12 @@ public class PlayerController : MonoBehaviour
       if(Input.GetKey(KeyCode.LeftShift))
       {
          _currentSpeed = runSpeed;
+         animator.speed = 1.5f;
       }
       else
       {
          _currentSpeed = speed;
+         animator.speed = 1;
       }
 
       if(Input.GetKey(KeyCode.LeftArrow))
@@ -79,7 +81,8 @@ public class PlayerController : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Space))
       { 
          rb.velocity = Vector2.up * jumpForce;
-         rb.transform.localScale = Vector2.one;
+         Vector2 s = rb.transform.localScale;
+         rb.transform.localScale = new Vector3(s.x, 1f);
          DOTween.Kill(rb.transform);
          HandleJumpScale();
       }
@@ -87,7 +90,8 @@ public class PlayerController : MonoBehaviour
 
    void HandleJumpScale()
    {
+      float xSign = Mathf.Sign(rb.transform.localScale.x);
       rb.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-      rb.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+      rb.transform.DOScaleX(jumpScaleX * xSign, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
    }
 }
