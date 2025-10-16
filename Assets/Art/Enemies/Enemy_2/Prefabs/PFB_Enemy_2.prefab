@@ -352,6 +352,9 @@ GameObject:
   - component: {fileID: 2579992963874810556}
   - component: {fileID: 7269838634034973525}
   - component: {fileID: 6168458495864675481}
+  - component: {fileID: 8942850784537473719}
+  - component: {fileID: 2054633455539497960}
+  - component: {fileID: 7316584720833600744}
   m_Layer: 0
   m_Name: PFB_Enemy_2
   m_TagString: Untagged
@@ -426,6 +429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  animator: {fileID: 0}
+  triggerAttack: Attack
+  healthBase: {fileID: 0}
 --- !u!61 &6168458495864675481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -452,6 +458,64 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.19, y: 6.67}
   m_EdgeRadius: 0
+--- !u!50 &8942850784537473719
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176744783887258002}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &2054633455539497960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176744783887258002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11ffd04fb2fd7548abba17ac8f95997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLife: 10
+  destroyOnKill: 0
+  _flashColor: {fileID: 0}
+--- !u!114 &7316584720833600744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176744783887258002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac3c27444dea4746a27c6e20c63b025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 3562818169227747833}
+  - {fileID: 7803505671189439292}
+  - {fileID: 444083526418024891}
+  - {fileID: 7779900026986254017}
+  - {fileID: 8779633609815029051}
+  - {fileID: 1181539698875460310}
+  - {fileID: 6176580827313767728}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.05
 --- !u!1 &3257322378915922041
 GameObject:
   m_ObjectHideFlags: 0

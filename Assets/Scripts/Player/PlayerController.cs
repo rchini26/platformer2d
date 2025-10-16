@@ -81,8 +81,8 @@ public class PlayerController : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Space))
       { 
          rb.velocity = Vector2.up * jumpForce;
-         Vector2 s = rb.transform.localScale;
-         rb.transform.localScale = new Vector3(s.x, 1f);
+         Vector3 s = rb.transform.localScale;
+         rb.transform.localScale = new Vector3(s.x, 1f, s.z);
          DOTween.Kill(rb.transform);
          HandleJumpScale();
       }
