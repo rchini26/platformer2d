@@ -1,12 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
 {
+    public Action OnKill;
+    
     public int startLife = 10;
     public bool destroyOnKill;
+    public float delayToKill = .5f;
+    
     private int _currentLife;
     private bool _isDead;
     
@@ -53,7 +57,12 @@ public class HealthBase : MonoBehaviour
         
         if (destroyOnKill)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, delayToKill);
+        }
+
+        if (OnKill != null)
+        {
+            OnKill.Invoke();
         }
     }
 }

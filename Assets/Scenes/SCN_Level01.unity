@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vcam: {fileID: 1729252638}
-  playerPrefab: {fileID: 156605454558293819, guid: 129d415b2042c384183daa0f1d2ff9ea, type: 3}
+  playerPrefab: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
   enemies:
   - {fileID: 3090786764695304946, guid: 3de838754c767a446a5473969062a84e, type: 3}
   - {fileID: 3176744783887258002, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
@@ -2617,7 +2617,7 @@ GameObject:
   - component: {fileID: 1351775993}
   - component: {fileID: 1351775992}
   m_Layer: 5
-  m_Name: w
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4666,7 +4666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021202506107228960, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.0879354
+      value: -5.18
       objectReference: {fileID: 0}
     - target: {fileID: 1021202506107228960, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4723,7 +4723,7 @@ PrefabInstance:
       objectReference: {fileID: 326763538}
     - target: {fileID: 2054633455539497960, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
       propertyPath: destroyOnKill
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2579992963874810556, guid: e0d57717ad485d748986ddb9eba2beb8, type: 3}
       propertyPath: m_SortingOrder
@@ -4812,7 +4812,7 @@ PrefabInstance:
       objectReference: {fileID: 1039684385}
     - target: {fileID: 2591664907959561419, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: destroyOnKill
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3090786764695304946, guid: 3de838754c767a446a5473969062a84e, type: 3}
       propertyPath: m_Name
