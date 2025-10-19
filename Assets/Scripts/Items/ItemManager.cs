@@ -7,7 +7,7 @@ using TMPro;
 public class ItemManager : Singleton<ItemManager>
 {
     public int coins;
-    public TextMeshProUGUI coinText;
+    
     void Start()
     {
         Reset();
@@ -25,6 +25,6 @@ public class ItemManager : Singleton<ItemManager>
 
     private void UpdateUI()
     {
-        coinText.text = coins.ToString();
+        UIInGameManager.UpdateCoinsText(coins.ToString());
     }
 }
