@@ -1098,9 +1098,9 @@ MonoBehaviour:
   speed: 15
   runSpeed: 30
   jumpForce: 30
-  jumpScaleY: 1.1
-  jumpScaleX: 0.7
-  animationDuration: 0.3
+  soJumpScaleY: {fileID: 11400000, guid: 235d6c013fd39ef4f81d1ef40d5580c3, type: 2}
+  soJumpScaleX: {fileID: 11400000, guid: a0eac37ddaa592d4fbe7ce9fb83c11fe, type: 2}
+  soAnimationDuration: {fileID: 11400000, guid: af97b60fdc994dc4585c30588d60ca2b, type: 2}
   ease: 27
   boolRun: Run
   triggerDeath: Death

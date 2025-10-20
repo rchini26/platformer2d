@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
    public float jumpForce = 15;
 
    [Header("Animation Setup")] 
-   public float jumpScaleY = 1.5f;
-   public float jumpScaleX = .7f;
-   public float animationDuration = 0.3f;
+   public SOFloat soJumpScaleY;
+   public SOFloat soJumpScaleX;
+   public SOFloat soAnimationDuration;
    public Ease ease = Ease.OutBack;
 
    [Header("Animation Player")] 
@@ -110,8 +110,8 @@ public class PlayerController : MonoBehaviour
    void HandleJumpScale()
    {
       float xSign = Mathf.Sign(rb.transform.localScale.x);
-      rb.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-      rb.transform.DOScaleX(jumpScaleX * xSign, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+      rb.transform.DOScaleY(soJumpScaleY.value, soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+      rb.transform.DOScaleX(soJumpScaleX.value * xSign, soAnimationDuration.value).SetLoops(2, LoopType.Yoyo).SetEase(ease);
    }
 
    public void DestroyMe()
