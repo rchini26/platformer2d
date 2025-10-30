@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
    
    private float _currentSpeed;
    public Animator animator;
-
+   
+   [Header("Jump Collision Check")]
+   public bool isOnGround;
+   public ParticleSystem jumpParticles;
    private void Awake()
    {
       if (healthBase != null)
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
          healthBase.OnKill += OnPlayerKill;
       }
    }
-
+   
    private void OnPlayerKill()
    {
       healthBase.OnKill -= OnPlayerKill;
@@ -34,6 +37,13 @@ public class PlayerController : MonoBehaviour
       HandleJump();
    }
 
+   private void OnCollisionEnter2D(Collision2D collision)
+   {
+      if (collision.gameObject.CompareTag("Ground"))
+      {
+         isOnGround = true;
+      }
+   }
    void HandleMovement()
    {
       if(Input.GetKey(KeyCode.LeftShift))
@@ -82,16 +92,25 @@ public class PlayerController : MonoBehaviour
 
    void HandleJump()
    {
-      if (Input.GetKeyDown(KeyCode.Space))
+      if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
       { 
+         isOnGround = false;
          rb.velocity = Vector2.up * playerSetup.jumpForce;
          Vector3 s = rb.transform.localScale;
          rb.transform.localScale = new Vector3(s.x, 1f, s.z);
          DOTween.Kill(rb.transform);
          HandleJumpScale();
+         PlayJumpVFX();
       }
    }
 
+   void PlayJumpVFX()
+   {
+      if (jumpParticles != null)
+      {
+         jumpParticles.Play();
+      }
+   }
    void HandleJumpScale()
    {
       float xSign = Mathf.Sign(rb.transform.localScale.x);
