@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
+  particlePrefab: {fileID: 3654293859878582858, guid: 1f4e99e40eef6c245948030a6a4b4255, type: 3}
 --- !u!58 &581133246060525012
 CircleCollider2D:
   m_ObjectHideFlags: 0

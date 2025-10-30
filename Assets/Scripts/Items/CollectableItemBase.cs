@@ -6,6 +6,8 @@ using UnityEngine;
 public class CollectableItemBase : MonoBehaviour
 {
     public string compareTag = "Player";
+    public ParticleSystem particlePrefab;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag(compareTag))
@@ -19,9 +21,14 @@ public class CollectableItemBase : MonoBehaviour
         OnCollect();
         gameObject.SetActive(false);
     }
-
+    
     protected virtual void OnCollect()
     {
-        
+        if (particlePrefab != null)
+        {
+            ParticleSystem particle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+            particle.Play();
+            Destroy(particle.gameObject, particle.main.duration);
+        }
     }
 }
