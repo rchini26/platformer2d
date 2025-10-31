@@ -2151,6 +2151,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 2171621039033273404, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2171621039033273404, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6248095405360110433, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
       propertyPath: startDelay.scalar
       value: 0
@@ -2164,6 +2172,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1243644225}
     - target: {fileID: 7098074260960959978, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 1613689036}
+    - target: {fileID: 7098074260960959978, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098074260960959978, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 3654293859878582858, guid: 1f4e99e40eef6c245948030a6a4b4255, type: 3}
@@ -2171,6 +2187,10 @@ PrefabInstance:
       propertyPath: particleSystem
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7098074260960959978, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+      propertyPath: audioSourcePrefab
+      value: 
+      objectReference: {fileID: 4204982360178141720, guid: 16f431bff5d5b03418160caa231516b7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
 --- !u!1 &1065526919
@@ -3625,6 +3645,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1613689036 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 581133246060525012, guid: e6cde5f784c678340b428ebd339cc404, type: 3}
+  m_PrefabInstance: {fileID: 1063184712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641408232
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compareTag: Player
   particlePrefab: {fileID: 3654293859878582858, guid: 1f4e99e40eef6c245948030a6a4b4255, type: 3}
+  audioSourcePrefab: {fileID: 4204982360178141720, guid: 16f431bff5d5b03418160caa231516b7, type: 3}
 --- !u!58 &581133246060525012
 CircleCollider2D:
   m_ObjectHideFlags: 0

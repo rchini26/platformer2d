@@ -8,6 +8,10 @@ public class CollectableItemBase : MonoBehaviour
     public string compareTag = "Player";
     public ParticleSystem particlePrefab;
     
+    [Header("Sounds")]
+    public AudioSource audioSourcePrefab;
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag(compareTag))
@@ -24,6 +28,12 @@ public class CollectableItemBase : MonoBehaviour
     
     protected virtual void OnCollect()
     {
+        if (audioSourcePrefab != null)
+        {
+            AudioSource audioSource = Instantiate(audioSourcePrefab);
+            audioSource.Play();
+            Destroy(audioSource, audioSource.clip.length);
+        }
         if (particlePrefab != null)
         {
             ParticleSystem particle = Instantiate(particlePrefab, transform.position, Quaternion.identity);

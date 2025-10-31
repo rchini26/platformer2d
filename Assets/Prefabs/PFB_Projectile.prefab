@@ -147,7 +147,7 @@ MonoBehaviour:
   direction: {x: 35, y: 0, z: 0}
   timeToDestroy: 1.5
   side: 1
-  damageAmount: 1
+  damageAmount: 2
 --- !u!58 &-1180922835466070225
 CircleCollider2D:
   m_ObjectHideFlags: 0
