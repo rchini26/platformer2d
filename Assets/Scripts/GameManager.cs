@@ -4,6 +4,7 @@ using UnityEngine;
 using Core.Singleton;
 using DG.Tweening;
 using Cinemachine;
+using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>
 {
     [Header("Camera")]
@@ -22,13 +23,12 @@ public class GameManager : Singleton<GameManager>
     public float duration = 0.5f;
     public float delay = 0.1f;
     public Ease ease = Ease.OutBack;
-
+    
     private GameObject _currentPlayer;
 
     private void Start()
     {
         Init();
-        
         _currentPlayer = GameObject.Find("Player");
     }
     public void Init()
