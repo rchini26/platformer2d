@@ -6351,6 +6351,7 @@ MonoBehaviour:
   healthBase: {fileID: 2154881657692992360}
   playerSetup: {fileID: 11400000, guid: 0f8a3b4676734a740bdbf00c48519378, type: 2}
   animator: {fileID: 6413013834153556191}
+  jumpSound: {fileID: 6186875682613235581, guid: ed972fcfeb6582741a800440de06fae5, type: 3}
   isOnGround: 0
   jumpParticles: {fileID: 8898686364361993438}
 --- !u!50 &-48472327924031224
@@ -6412,8 +6413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bec587cccbf324b9f8115dc8cd480d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 112
   audioSource: {fileID: 4555606393537305389}
+  audioMixer: {fileID: 0}
 --- !u!82 &4555606393537305389
 AudioSource:
   m_ObjectHideFlags: 0

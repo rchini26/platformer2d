@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
    
    private float _currentSpeed;
    public Animator animator;
+   public AudioSource jumpSound;
    
    [Header("Jump Collision Check")]
    public bool isOnGround;
@@ -100,15 +101,22 @@ public class PlayerController : MonoBehaviour
          rb.transform.localScale = new Vector3(s.x, 1f, s.z);
          DOTween.Kill(rb.transform);
          HandleJumpScale();
-         PlayJumpVFX();
+         PlayJumpFX();
       }
    }
 
-   void PlayJumpVFX()
+   void PlayJumpFX()
    {
       if (jumpParticles != null)
       {
          jumpParticles.Play();
+      }
+
+      if (jumpSound != null)
+      {
+         AudioSource audioSource = Instantiate(jumpSound);
+         audioSource.Play();
+         Destroy(audioSource.gameObject, audioSource.clip.length);
       }
    }
    void HandleJumpScale()

@@ -32,7 +32,7 @@ public class CollectableItemBase : MonoBehaviour
         {
             AudioSource audioSource = Instantiate(audioSourcePrefab);
             audioSource.Play();
-            Destroy(audioSource, audioSource.clip.length);
+            Destroy(audioSource.gameObject, audioSource.clip.length);
         }
         if (particlePrefab != null)
         {

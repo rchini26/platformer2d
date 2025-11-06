@@ -10,12 +10,12 @@ public class AudioPlayerHelper : MonoBehaviour
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFX", volume);
+        audioMixer.SetFloat("SFXVolume", volume);
     }
 
     public void SetAmbienceVolume(float volume)
     {
-        audioMixer.SetFloat("Ambience", volume);
+        audioMixer.SetFloat("AmbienceVolume", volume);
     }
     public void Play()
     {
