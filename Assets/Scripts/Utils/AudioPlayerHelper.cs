@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioPlayerHelper : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioMixer audioMixer;
+    public KeyCode keyCode = KeyCode.P;
 
-    public void SetSFXVolume(float volume)
+    void Update()
     {
-        audioMixer.SetFloat("SFXVolume", volume);
-    }
-
-    public void SetAmbienceVolume(float volume)
-    {
-        audioMixer.SetFloat("AmbienceVolume", volume);
+        if (Input.GetKeyDown(keyCode))
+        {
+            Play();
+        }
     }
     public void Play()
     {

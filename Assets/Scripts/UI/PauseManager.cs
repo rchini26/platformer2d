@@ -7,14 +7,11 @@ public class PauseManager : MonoBehaviour
 {
     [Header("Menu")] 
     public GameObject pauseMenuUI;
-    public Slider volumeSlider;
     private float previousTimeScale;
 
     void Start()
     {
         pauseMenuUI.SetActive(false);
-        volumeSlider.onValueChanged.AddListener(SetVolume);
-        volumeSlider.value = AudioListener.volume;
     }
 
     void Update()
@@ -31,7 +28,7 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         previousTimeScale = Time.timeScale;
-        Time.timeScale = 0f; // Pausa o jogo
+        Time.timeScale = 0f; 
         pauseMenuUI.SetActive(true);
     }
 
@@ -39,10 +36,5 @@ public class PauseManager : MonoBehaviour
     {
         Time.timeScale = previousTimeScale;
         pauseMenuUI.SetActive(false);
-    }
-
-    public void SetVolume(float volume)
-    {
-        AudioListener.volume = volume;
     }
 }
