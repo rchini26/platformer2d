@@ -10,16 +10,11 @@ public class VolumeSetting : MonoBehaviour
     public Slider volumeSlider;
     void Start()
     {
-        volumeSlider.onValueChanged.AddListener(SetSFXVolume);
-        volumeSlider.onValueChanged.AddListener(SetAmbienceVolume);
+        volumeSlider.onValueChanged.AddListener(SetVolume);
         volumeSlider.value = AudioListener.volume;
     }
-    public void SetSFXVolume(float volume)
-    {
-        audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
-    }
 
-    public void SetAmbienceVolume(float volume)
+    public void SetVolume(float volume)
     {
         audioMixer.SetFloat("AmbienceVolume", Mathf.Log10(volume) * 20);
     }

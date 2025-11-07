@@ -6,31 +6,50 @@ using DG.Tweening;
 
 public class FlashColor : MonoBehaviour
 {
-   public List<SpriteRenderer> spriteRenderers;
+   public List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
    public Color color = Color.red;
-   public float duration = .3f;
-   
+   public float duration = 0.3f;
+
    private Tween _currentTween;
+
    void OnValidate()
    {
-      spriteRenderers = new List<SpriteRenderer>();
-      foreach (var child in transform.GetComponentsInChildren<SpriteRenderer>())
+      RefreshSpriteList();
+   }
+
+   // Refresh the list to remove nulls and rebuild from children
+   public void RefreshSpriteList()
+   {
+      spriteRenderers.Clear();
+      foreach (var child in GetComponentsInChildren<SpriteRenderer>())
       {
-         spriteRenderers.Add(child);
+         if (child != null)
+            spriteRenderers.Add(child);
       }
    }
-   
+
    public void Flash()
    {
-      if (_currentTween != null)
+      // Kill any existing tween safely
+      if (_currentTween != null && _currentTween.IsActive())
       {
          _currentTween.Kill();
-         spriteRenderers.ForEach(i => i.color = Color.white);
+         foreach (var sr in spriteRenderers)
+         {
+            if (sr != null) sr.color = Color.white;
+         }
       }
-      
+
+      // Clean out destroyed references before starting new tweens
+      spriteRenderers.RemoveAll(sr => sr == null);
+
       foreach (var sprite in spriteRenderers)
       {
-         _currentTween = sprite.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
+         if (sprite != null && sprite.gameObject.activeInHierarchy)
+         {
+            _currentTween = sprite.DOColor(color, duration)
+               .SetLoops(2, LoopType.Yoyo);
+         }
       }
    }
 }

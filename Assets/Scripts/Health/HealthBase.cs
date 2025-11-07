@@ -49,20 +49,22 @@ public class HealthBase : MonoBehaviour
 
     private void Kill()
     {
+        if (_isDead) return;
         _isDead = true;
+        DOTween.Kill(gameObject);
+        
         if (_flashColor != null)
         {
-            DOTween.Kill(gameObject);
+            _flashColor.enabled = false;
         }
+         
+        OnKill?.Invoke(); 
         
         if (destroyOnKill)
         {
             Destroy(gameObject, delayToKill);
         }
-
-        if (OnKill != null)
-        {
-            OnKill.Invoke();
-        }
+       
+        FindObjectOfType<GameOverManager>().GameOver();
     }
 }
